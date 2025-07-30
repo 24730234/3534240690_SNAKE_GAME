@@ -1,0 +1,27 @@
+# Ignore build directory
+cmake-build-*/
+
+# Ignore CLion and JetBrains IDE specific files
+.idea/
+*.iml
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore CMake specific files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+install_manifest.txt
+
+# Ignore generated executables or binaries
+*.out
+*.exe
+*.a
+*.o
+*.so
+*.obj
+/CMakeLists.txt
