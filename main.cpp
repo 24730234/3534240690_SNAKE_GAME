@@ -1,5 +1,5 @@
 ﻿#include <iostream>
 int main() {
-    // Thọ test
+    // Thọ test (test lần 2)
     return 0;
 }
