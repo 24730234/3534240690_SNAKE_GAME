@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime> // dung cho srand
-#include <window.h> // dung cho Sleep
+#include <window.h> // dung cho console
 using namespace std;
 const int width = 20; //chieu rong
 const int height = 20; //chieu cao
@@ -27,9 +27,12 @@ void KhoiTao() {
     y = height / 2;
     Score = 0;
     nDot = 0;
+    MoiDaAn = 0;
     SinhMoi();
     GameOver = false;
 }
+
+
 int main() {
     // Thọ test (test lần 3)
     // Kiên Test Again
