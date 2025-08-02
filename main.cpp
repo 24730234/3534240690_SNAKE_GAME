@@ -33,5 +33,6 @@ void KhoiTao() {
 int main() {
     // Thọ test (test lần 3)
     // Kiên Test Again
+    // Hai test up code
     return 0;
 }
