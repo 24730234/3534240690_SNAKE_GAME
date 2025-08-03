@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime> // dung cho srand
-#include <window.h> // dung cho console
+#include <windows.h> // dung cho console
 using namespace std;
 const int width = 20; //chieu rong
 const int height = 20; //chieu cao
@@ -15,7 +15,7 @@ int MoiX, MoiY; // toa do moi
 int MoiDaAn; // kiem tra so moi da an
 bool GameOver = false ; // kiem tra ket thuc tro choi
 bool MoiHienTai = false; // kiem tra moi hien tai
-
+int Score;
 // Ham sinh moi
 void SinhMoi() {
     MoiX = rand() % width;
@@ -40,7 +40,7 @@ void VeGiaoDien() {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
         if (j == 0) cout <<"#";
-        bool print = flase;
+        bool print = false;
         // In dau ran
         if (i == y && j == x) {
             cout << char(248); // hinh tron
