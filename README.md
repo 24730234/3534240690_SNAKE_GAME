@@ -1,5 +1,7 @@
 Tài liệu Kỹ thuật Game Rắn Săn Mồi (C++ Console)
+
 Tài liệu này cung cấp cái nhìn sâu sắc về cấu trúc kỹ thuật, cách thức hoạt động của các hàm và các thuật toán cốt lõi trong game Rắn Săn Mồi phiên bản console C++.
+
 I. Giai đoạn xây dựng code
 1. Mô tả Kỹ thuật Chung
 Game Rắn Săn Mồi này được xây dựng như một ứng dụng console đơn giản trên nền tảng Windows, sử dụng các thư viện chuẩn C++ và các hàm API của Windows để điều khiển màn hình console. Game hoạt động dựa trên một vòng lặp chính (game loop) liên tục cập nhật trạng thái game và vẽ lại giao diện. Các đối tượng trong game (rắn, táo, tường) được biểu diễn bằng các ký tự ASCII và vị trí của chúng được quản lý thông qua hệ tọa độ (x, y) trên console.
@@ -76,10 +78,10 @@ void gotoxy(int x, int y)
 Mô tả: Di chuyển con trỏ console đến vị trí (x, y) đã chỉ định. Đây là một hàm API của Windows.
 
 II. Giai đoạn kiểm thử và sửa lỗi
-1.1. Kiểm tra và Sửa lỗi Logic Game
+1. Kiểm tra và Sửa lỗi Logic Game
 Mục tiêu: Đảm bảo các quy tắc cơ bản của game được thực thi đúng, tránh các tình huống không mong muốn hoặc lỗi logic.
 
-1.1.1. Xác minh điều kiện isHitWall():
+1.1. Xác minh điều kiện isHitWall():
 
 Chi tiết kỹ thuật: Hàm này kiểm tra xem đầu rắn (snake[0]) có chạm vào bất kỳ biên nào của khung game hay không. Các điều kiện cần được xác minh là:
 
@@ -97,7 +99,7 @@ Di chuyển rắn chủ động vào từng biên (trái, phải, trên, dưới
 
 Kiểm tra các trường hợp đặc biệt: rắn xuất phát ngay sát biên, rắn rất dài chạm biên.
 
-1.1.2. Xác minh điều kiện isBiteItself():
+1.2. Xác minh điều kiện isBiteItself():
 
 Chi tiết kỹ thuật: Hàm này kiểm tra xem đầu rắn (snake[0]) có trùng tọa độ với bất kỳ phần thân nào của nó (từ snake[1] trở đi) hay không. Vòng lặp phải bắt đầu từ phần thân thứ hai để tránh so sánh đầu rắn với chính nó.
 
@@ -107,7 +109,7 @@ Cho rắn di chuyển thành hình chữ U hoặc hình tròn để đầu rắn
 
 Kiểm tra với rắn có độ dài khác nhau (ngắn, trung bình, rất dài).
 
-1.1.3. Đảm bảo genApple() tạo táo hợp lệ:
+1.3. Đảm bảo genApple() tạo táo hợp lệ:
 
 Chi tiết kỹ thuật: Hàm này phải tạo ra tọa độ (x, y) ngẫu nhiên cho táo sao cho nó nằm trong khung game (1 <= x < WIDTH, 1 <= y < HEIGHT) và không trùng với bất kỳ phần nào của thân rắn. Mã nguồn hiện tại đã có vòng lặp do-while để kiểm tra trùng với rắn, cần đảm bảo vòng lặp này hoạt động hiệu quả.
 
@@ -117,7 +119,7 @@ Chơi game nhiều lần, quan sát vị trí táo xuất hiện.
 
 Kiểm tra khi rắn rất dài, chiếm gần hết màn hình, táo vẫn phải xuất hiện ở vị trí hợp lệ.
 
-1.1.4. Kiểm tra logic tăng tốc độ rắn:
+1.4. Kiểm tra logic tăng tốc độ rắn:
 
 Chi tiết kỹ thuật: Logic speed = 600 - t * 100 (trong đó t là cấp độ chơi) điều chỉnh tốc độ game. Cần đảm bảo rằng tốc độ tăng tuyến tính và có giới hạn hợp lý (ví dụ: không quá nhanh đến mức không thể điều khiển, hoặc không quá chậm).
 
@@ -127,10 +129,10 @@ Chơi ở các cấp độ khác nhau (1 đến 5) để cảm nhận sự thay 
 
 Kiểm tra xem Sleep(speed) có hoạt động đúng với giá trị speed được tính toán hay không.
 
-1.2. Kiểm tra và Tối ưu hóa Hiển thị Console
+2. Kiểm tra và Tối ưu hóa Hiển thị Console
 Mục tiêu: Đảm bảo giao diện game trên console được vẽ chính xác, rõ ràng và không có lỗi hiển thị.
 
-1.2.1. Đảm bảo drawHeadnTail() hoạt động chính xác:
+2.1. Đảm bảo drawHeadnTail() hoạt động chính xác:
 
 Chi tiết kỹ thuật: Hàm này có nhiệm vụ vẽ đầu rắn mới và xóa đuôi rắn cũ. Điều quan trọng là ký tự ' ' (khoảng trắng) phải được in đúng vị trí prevTail để xóa dấu vết của đuôi rắn cũ.
 
@@ -140,7 +142,7 @@ Quan sát kỹ chuyển động của rắn: không được có các ký tự B
 
 Kiểm tra ở tốc độ cao để đảm bảo không có hiện tượng "nhấp nháy" hoặc "vết mờ" do xóa không kịp.
 
-1.2.2. Kiểm tra hiển thị điểm số displayScore():
+2.2. Kiểm tra hiển thị điểm số displayScore():
 
 Chi tiết kỹ thuật: Hàm này in điểm số ra một vị trí cố định ngoài khung game. Cần đảm bảo vị trí in không bị chồng lấn với khung game hoặc các thông báo khác, và điểm số được cập nhật ngay lập tức sau khi rắn ăn táo.
 
@@ -150,7 +152,7 @@ Quan sát điểm số khi chơi game, đảm bảo nó tăng đúng và hiển 
 
 Kiểm tra khi điểm số đạt các giá trị lớn (ví dụ: 10, 100) để đảm bảo không bị tràn hoặc lệch vị trí.
 
-1.2.3. Đảm bảo khung game drawBox() hiển thị chính xác:
+2.3. Đảm bảo khung game drawBox() hiển thị chính xác:
 
 Chi tiết kỹ thuật: Hàm này vẽ các ký tự = và | để tạo khung. Cần đảm bảo các ký tự này được in đúng vị trí (0,0) đến (WIDTH, HEIGHT) và tạo thành một hình chữ nhật kín.
 
@@ -160,10 +162,10 @@ Kiểm tra hình dạng của khung game khi khởi động.
 
 Thay đổi giá trị WIDTH và HEIGHT (trong MACRO) để xem khung có tự điều chỉnh đúng không.
 
-1.3. Cải thiện Xử lý Đầu vào
+3. Cải thiện Xử lý Đầu vào
 Mục tiêu: Đảm bảo người chơi có thể điều khiển rắn mượt mà và các tùy chọn menu phản hồi chính xác.
 
-1.3.1. Xử lý trường hợp nhấn phím điều hướng quá nhanh:
+3.1. Xử lý trường hợp nhấn phím điều hướng quá nhanh:
 
 Chi tiết kỹ thuật: Trong game loop, _kbhit() kiểm tra xem có phím nào được nhấn không, sau đó _getch() đọc phím đó. Nếu người chơi nhấn nhiều phím nhanh chóng giữa các lần cập nhật game, có thể xảy ra tình trạng mất hoặc bỏ qua đầu vào. Cần đảm bảo rằng chỉ một hướng được ghi nhận mỗi lần cập nhật game để tránh rắn "quay đầu" không mong muốn. Logic hiện tại đã có kiểm tra if (direction != Direction::down) để ngăn quay ngược 180 độ, cần đảm bảo nó đủ mạnh.
 
@@ -173,7 +175,7 @@ Nhấn liên tục các phím điều hướng để xem rắn có di chuyển m
 
 Thử nhấn nhanh các phím ngược chiều (ví dụ: đang đi lên, nhấn xuống ngay lập tức) để xác nhận rắn không quay đầu.
 
-1.3.2. Cải thiện xử lý đầu vào trong menu:
+3.2. Cải thiện xử lý đầu vào trong menu:
 
 Chi tiết kỹ thuật: Trong showStartMenu() và showEndMenu(), cin >> option được sử dụng để lấy đầu vào. Nếu người dùng nhập ký tự không phải số hoặc một chuỗi, cin có thể gặp lỗi và gây ra vòng lặp vô hạn hoặc hành vi không mong muốn.
 
@@ -185,10 +187,10 @@ Nhập các số không hợp lệ (ví dụ: 0, 3 khi chỉ có 1, 2).
 
 Giải pháp đề xuất: Sử dụng cin.fail() và cin.clear(), cin.ignore() để xử lý lỗi đầu vào và xóa bộ đệm.
 
-1.4. Quản lý Trạng thái Game
+4. Quản lý Trạng thái Game
 Mục tiêu: Đảm bảo game có thể được khởi động lại hoặc đặt lại về trạng thái ban đầu một cách chính xác.
 
-1.4.1. Đảm bảo resetSnake() đặt lại tất cả biến toàn cục:
+4.1. Đảm bảo resetSnake() đặt lại tất cả biến toàn cục:
 
 Chi tiết kỹ thuật: Hàm này phải đặt lại score, direction, và cấu trúc snake về các giá trị khởi tạo ban đầu. Cần kiểm tra xem có biến toàn cục nào khác cần được đặt lại (ví dụ: speed nếu nó thay đổi trong quá trình chơi) hay không.
 
