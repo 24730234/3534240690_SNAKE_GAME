@@ -5,7 +5,29 @@ vector<string> menu = {"Play", "Settings", "Exit"};
 void printMenu(vector<string>& menu, int& selectedIndex)
 {   
     system("cls");
-    cout << "------------Menu------------" << endl;
+    cout << "\033[1m\033[37m" // bold + trắng
+    R"(                    /^\/^\
+                  _|__|  O|
+         \/     /~     \_/ \
+          \____|__________/  \
+                 \_______      \
+                         `\     \                 \
+                           |     |                  \
+                          /      /                    \
+                         /     /                       \
+                       /      /                         \ \
+                      /     /                            \  \
+                    /     /             _----_            \   \
+                   /     /           _-~      ~-_         |   |
+                  (      (        _-~    _--_    ~-_     _/   |
+                   \      ~-____-~    _-~    ~-_    ~-_-~    /
+                     ~-_           _-~          ~-_       _-~  
+                        ~--______-~                ~-___-~
+
+)" 
+    << "\033[0m\n";
+    
+    cout << endl << endl << "------------Menu------------" << endl;
     for(int i = 0; i < menu.size(); i++)
     {   
         if (selectedIndex == i)
@@ -57,6 +79,7 @@ void showStartMenu()
     int selectedIndex = 0, choose = -1;
 
     char key;
+    menuStartSound();
     while (true) {
         printMenu(menu, selectedIndex);
         choose = returnSelectedIndex(control, key, selectedIndex); 
