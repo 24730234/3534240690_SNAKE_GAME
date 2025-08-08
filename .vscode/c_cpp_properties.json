@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src"
+            ],
+            "compilerArgs": [
+                "-I ${workspaceFolder}/include/Control.cpp",
+                "-I ${workspaceFolder}/include/Menu.cpp"
+            ]
+        }
+    ],
+    "version": 4
+}

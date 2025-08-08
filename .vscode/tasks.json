@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Snake Game",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "-I", "${workspaceFolder}/include",
+        "${workspaceFolder}/src/Control.cpp",
+        "${workspaceFolder}/src/Menu.cpp",
+        "${workspaceFolder}/src/Sound.cpp",
+        "${workspaceFolder}/main.cpp",
+        "-lwinmm",
+        "-o", "${workspaceFolder}/game.exe"
+      ],
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

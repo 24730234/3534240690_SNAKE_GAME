@@ -1,7 +1,10 @@
 #include <iostream>
 #include <ctime> // dung cho srand
-#include <windows.h> // dung cho console
+#include "Menu.h"
+#include "Control.h"
+
 using namespace std;
+
 const int width = 20; //chieu rong
 const int height = 20; //chieu cao
 const int Moi = 10; //so luong moi
@@ -76,8 +79,7 @@ void VeGiaoDien() {
 
 
 int main() {
-    // Thọ test (test lần 3)
-    // Kiên Test Again
-    // Hai test up code
+    showStartMenu();
+
     return 0;
 }
