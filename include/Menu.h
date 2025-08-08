@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "Control.h"
 #include <windows.h>
+#include "Sound.h"
 #include <iostream>
 
 using namespace std;
