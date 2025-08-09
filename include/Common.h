@@ -5,6 +5,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 #include <vector>
+#include <conio.h>
+#include <windows.h>
 
 struct Point { int x, y; };
 #pragma region Định nghĩa hằng số
@@ -14,6 +16,8 @@ struct Point { int x, y; };
 #define PREY "♥" // Mồi của rắn
 #pragma endregion
 
+// Đi tới vị trí (x, y)
+void gotoxy(int x, int y);
 
 extern std::vector<Point> snake;
 extern Point prey;
