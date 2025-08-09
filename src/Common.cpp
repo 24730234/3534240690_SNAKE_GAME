@@ -18,6 +18,28 @@ int score = 0;// Khởi tạo biến điểm số.
 int speed = 300;// Khởi tạo biến tốc độ di chuyển của rắn
 Point prevTail;// Khởi tạo biến lưu đuôi rắn trước khi di chuyển
 
+// Tạo một quả táo ngẫu nhiên trên bảng
+void genApple()
+{
+	srand(time(0));
+    int x, y;
+    bool conflict;
+	do
+    {
+        x = rand() % (WIDTH - 1) + 1;
+        y = rand() % (HEIGHT - 1) + 1;
+        prey = {
+            x,
+            y,
+        };
+        // Xác định mồi có trùng với thân rắn hay không
+        conflict = std::any_of(snake.begin(), snake.end(),
+            [&](const Point& p) { return p.x == prey.x && p.y == prey.y;});
+    } while (conflict);
+	gotoxy(x, y);
+	std::cout << PREY;
+}
+
 #pragma region Hàm giao diện console
 // Đi tới vị trí (x, y)
 void gotoxy(int x, int y)

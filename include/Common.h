@@ -4,9 +4,13 @@
 
 #ifndef COMMON_H
 #define COMMON_H
+#include <iostream>
 #include <vector>
 #include <conio.h>
 #include <windows.h>
+#include <time.h>
+#include <algorithm>
+
 
 struct Point { int x, y; };
 #pragma region Định nghĩa hằng số
@@ -16,6 +20,8 @@ struct Point { int x, y; };
 #define PREY "♥" // Mồi của rắn
 #pragma endregion
 
+// Tạo một quả táo ngẫu nhiên trên bảng
+void genApple();
 
 extern std::vector<Point> snake;
 extern Point prey;
