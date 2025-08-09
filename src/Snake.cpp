@@ -2,8 +2,6 @@
 // Created by Asus on 8/9/2025.
 //
 #include "Snake.h"
-#include "Control.h"
-#include "Common.h"
 
 Snake::Snake(Control& control) {
     _control = &control;
