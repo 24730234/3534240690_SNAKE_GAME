@@ -16,8 +16,6 @@ struct Point { int x, y; };
 #define PREY "♥" // Mồi của rắn
 #pragma endregion
 
-// Đi tới vị trí (x, y)
-void gotoxy(int x, int y);
 
 extern std::vector<Point> snake;
 extern Point prey;

@@ -2,7 +2,6 @@
 // Created by Asus on 8/9/2025.
 //
 #include "Common.h"
-#include "windows.h"
 
 #pragma region Biến toàn cục
 // Khởi tạo vị trí con rắn chính giữa khung hình khi bắt đầu trò chơi.
