@@ -24,4 +24,5 @@ extern Point prey;
 extern int score;
 extern int speed;
 extern Point prevTail;
+extern void gotoxy(int x, int y); // Hàm di chuyển con trỏ đến vị trí (x, y)
 #endif //COMMON_H
