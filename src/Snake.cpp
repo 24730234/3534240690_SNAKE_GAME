@@ -43,3 +43,21 @@ bool Snake::isBiteItself() {
 bool Snake::isAtePrey() {
     return snake[0].x == prey.x && snake[0].y == prey.y;
 }
+
+void Snake::drawHeadnTail() {
+    gotoxy(snake[0].x, snake[0].y);
+    std::cout << BODY;
+    gotoxy(prevTail.x, prevTail.y);
+    std::cout << ' '; // Clear the old tail
+}
+
+void Snake::drawSnakePart(Point p) {
+    gotoxy(p.x, p.y);
+    std::cout << BODY;
+}
+
+void Snake::drawSnake() {
+    for (size_t i = 0; i < snake.size(); i++)
+        drawSnakePart(snake[i]);
+}
+
