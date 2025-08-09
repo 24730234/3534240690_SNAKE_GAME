@@ -6,6 +6,8 @@
 #include <windows.h>
 #include "Sound.h"
 #include <iostream>
+#include "Common.h"
+
 
 using namespace std;
 
@@ -19,5 +21,7 @@ void printMenu(vector<string>& menu, int& selectedIndex);
 int returnSelectedIndex(Control control, char key, int& selectedIndex);
 
 void showStartMenu();
+
+void showEndMenu();
 
 #endif // MENU_H

@@ -85,3 +85,22 @@ void showStartMenu()
          
     }
 }
+
+void showEndMenu()
+{
+	system("cls");
+	gotoxy(0, 0);
+	cout << "Kết thúc trò chơi!" << endl;
+	cout << "Điểm của bạn: " << score << endl;
+	cout << "Bạn có muốn chơi nữa không ([y]/[n]): ";
+	char option;
+	cin >> option;
+	option = tolower(option);
+	if (option == 'y')
+	{
+		//resetSnake();
+		//startGame();
+	}
+	else if (option == 'n')
+		exit(1);
+}
