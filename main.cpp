@@ -56,6 +56,6 @@ void resetSnake();// Hàm khôi phục vị trí của rắn về ban đầu.
 
 int main() {
     SetConsoleOutputCP(CP_UTF8); // Cho phép hiển thị ký tự UTF-8
-
+    showStartMenu();
     return 0;
 }
