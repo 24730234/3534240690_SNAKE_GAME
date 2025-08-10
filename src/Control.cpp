@@ -12,16 +12,16 @@ void Control::updateDirection(char key) {
     Direction newDir = currentDir;
 
     switch (key) {
-        case 'w': case 'W':
+        case 72: // ↑
             newDir = UP;
             break;
-        case 's': case 'S':
+        case 80: // ↓
             newDir = DOWN;
             break;
-        case 'a': case 'A':
+        case 75: // ←
             newDir = LEFT;
             break;
-        case 'd': case 'D':
+        case 77: // →
             newDir = RIGHT;
             break;
     }
@@ -37,16 +37,16 @@ void Control::updateDirectionMenu(char key)
     Direction newDir = currentDir;
 
     switch (key) {
-        case 'w': case 'W':
+        case 72: // ↑
             newDir = UP;
             break;
-        case 's': case 'S':
+        case 80: // ↓
             newDir = DOWN;
             break;
-        case 'a': case 'A':
+        case 75: // ←
             newDir = LEFT;
             break;
-        case 'd': case 'D':
+        case 77: // →
             newDir = RIGHT;
             break;
         case '\r': 
