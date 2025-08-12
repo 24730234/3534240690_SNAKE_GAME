@@ -9,7 +9,8 @@
 
 using namespace std;
 
-
+Control control;
+SnakeFunction snakeFunction;
 // Enum điều hướng
 // enum class Direction
 // {
@@ -103,9 +104,11 @@ void showEndMenu()
 void startGame()
 {
     system("cls");
-    ShowConsoleCursor(false);
+    Control control;
+    snakeFunction = SnakeFunction(control);
+    // ShowConsoleCursor(false);
     drawBox();
-    drawSnake();
+    snakeFunction.drawSnake();
     genApple();
     displayScore();
     while (true)
@@ -116,25 +119,26 @@ void startGame()
             if (ch == -32 || ch == 0xE0) // Arrow key prefix
             {
                 ch = _getch(); // Get the second byte
-                switch (ch)
-                {
-                case 72: // Up arrow
-                    if (direction != Direction::down)
-                        direction = Direction::up;
-                    break;
-                case 77: // Right arrow
-                    if (direction != Direction::left)
-                        direction = Direction::right;
-                    break;
-                case 80: // Down arrow
-                    if (direction != Direction::up)
-                        direction = Direction::down;
-                    break;
-                case 75: // Left arrow
-                    if (direction != Direction::right)
-                        direction = Direction::left;
-                    break;
-                }
+                control.updateDirection(ch);
+                // switch (ch)
+                // {
+                // case 72: // Up arrow
+                //     if (control.getDirection() != Direction::DOWN)
+                //         control.updateDirection(72);
+                //     break;
+                // case 77: // Right arrow
+                //     if (direction != Direction::LEFT)
+                //         direction = Direction::RIGHT;
+                //     break;
+                // case 80: // Down arrow
+                //     if (direction != Direction::UP)
+                //         direction = Direction::DOWN;
+                //     break;
+                // case 75: // Left arrow
+                //     if (direction != Direction::RIGHT)
+                //         direction = Direction::LEFT;
+                //     break;
+                // }
             }
             else if (ch == 'q') // Thoát trò chơi
             {
@@ -142,24 +146,24 @@ void startGame()
                 break;
             }
         }
-        move();
-        drawHeadnTail();
-        if (isAteApple())
+        snakeFunction.move();
+        snakeFunction.drawHeadnTail();
+        if (snakeFunction.isAtePrey())
         {
             score++;
             displayScore();
             growing();
             genApple();
         }
-        if (isBiteItself())
+        if (snakeFunction.isBiteItself())
         {
-            ShowConsoleCursor(true);
+            // ShowConsoleCursor(true);
             showEndMenu();
             break;
         }
-        if (isHitWall())
+        if (snakeFunction.isHitWall())
         {
-            ShowConsoleCursor(true);
+            // ShowConsoleCursor(true);
             showEndMenu();
             break;
         }
