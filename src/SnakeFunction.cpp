@@ -1,13 +1,13 @@
 //
 // Created by Asus on 8/9/2025.
 //
-#include "Snake.h"
+#include "SnakeFunction.h"
 
-Snake::Snake(Control& control) {
+SnakeFunction::SnakeFunction(Control& control) {
     _control = &control;
 }
 
-void Snake::move() {
+void SnakeFunction::move() {
     std::cout << "SNAKE MOVE";
     Direction direction = _control->getDirection();
     prevTail = snake.back();
@@ -24,15 +24,15 @@ void Snake::move() {
 }
 
 
-void Snake::growing() {
+void SnakeFunction::growing() {
     snake.push_back(prevTail);
 }
 
-bool Snake::isHitWall() {
+bool SnakeFunction::isHitWall() {
     return snake[0].x == 0 || snake[0].y == 0 || snake[0].x == WIDTH || snake[0].y == HEIGHT;
 }
 
-bool Snake::isBiteItself() {
+bool SnakeFunction::isBiteItself() {
     Point head = snake[0];
     for (size_t i = 1; i < snake.size(); i++)
         if (head.x == snake[i].x && head.y == snake[i].y)
@@ -40,23 +40,23 @@ bool Snake::isBiteItself() {
     return false;
 }
 
-bool Snake::isAtePrey() {
+bool SnakeFunction::isAtePrey() {
     return snake[0].x == prey.x && snake[0].y == prey.y;
 }
 
-void Snake::drawHeadnTail() {
+void SnakeFunction::drawHeadnTail() {
     gotoxy(snake[0].x, snake[0].y);
     std::cout << BODY;
     gotoxy(prevTail.x, prevTail.y);
     std::cout << ' '; // Clear the old tail
 }
 
-void Snake::drawSnakePart(Point p) {
+void SnakeFunction::drawSnakePart(Point p) {
     gotoxy(p.x, p.y);
     std::cout << BODY;
 }
 
-void Snake::drawSnake() {
+void SnakeFunction::drawSnake() {
     for (size_t i = 0; i < snake.size(); i++)
         drawSnakePart(snake[i]);
 }
