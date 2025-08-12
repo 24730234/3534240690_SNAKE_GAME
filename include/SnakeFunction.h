@@ -9,11 +9,12 @@
 #include "Control.h"
 #include "Common.h"
 
-class Snake {
+class SnakeFunction {
   private:
     Control* _control;
   public:
-    Snake(Control &control);
+    SnakeFunction();
+    SnakeFunction(Control &control);
     void move();
     bool isHitWall();
     bool isBiteItself();

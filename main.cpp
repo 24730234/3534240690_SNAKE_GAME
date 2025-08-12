@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <vector>
 #include "include/Common.h"
-#include "include/Snake.h"
+#include "include/SnakeFunction.h"
 #include "include/Control.h"
 #pragma endregion
 
