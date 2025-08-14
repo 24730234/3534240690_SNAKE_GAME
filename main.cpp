@@ -104,7 +104,7 @@ void showEndMenu()
 void startGame()
 {
     system("cls");
-    Control control;
+    //Control control;
     snakeFunction = SnakeFunction(control);
     // ShowConsoleCursor(false);
     drawBox();

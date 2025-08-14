@@ -21,7 +21,7 @@ struct Point { int x, y; };
 #pragma endregion
 
 // Tạo một quả táo ngẫu nhiên trên bảng
-void genApple();
+void genPrey();
 
 extern std::vector<Point> snake;
 extern Point prey;
