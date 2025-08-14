@@ -64,7 +64,7 @@ void showStartMenu()
 {
     Control control;
     int selectedIndex = 0, choose = -1;
-
+    SnakeFunction snakeFunction(control);
     char key;
     menuStartSound();
     while (true) {
@@ -72,13 +72,15 @@ void showStartMenu()
         choose = returnSelectedIndex(control, key, selectedIndex); 
         if (choose == 0) {
             cout << "Game Start" << endl;
-            // gameStart() se o day
+            startGame(snakeFunction, control);
+            // se o day
             system("pause");
         }
         else if (choose == 2)
         {
             cout << "Goodbye" << endl;
             // thoat game se o day
+            exit(1);
             system("pause");
             break;
         }
@@ -103,4 +105,72 @@ void showEndMenu()
 	}
 	else if (option == 'n')
 		exit(1);
+}
+
+void startGame(SnakeFunction &snakeFunction, Control &control)
+{
+    system("cls");
+    // ShowConsoleCursor(false);
+    drawBox();
+    snakeFunction.drawSnake();
+    genApple();
+    displayScore();
+    while (true)
+    {
+        if (_kbhit())
+        {
+            char ch = _getch();
+            if (ch == -32 || ch == 0xE0) // Arrow key prefix
+            {
+                ch = _getch(); // Get the second byte
+                control.updateDirection(ch);
+                // switch (ch)
+                // {
+                // case 72: // Up arrow
+                //     if (control.getDirection() != Direction::DOWN)
+                //         control.updateDirection(72);
+                //     break;
+                // case 77: // Right arrow
+                //     if (direction != Direction::LEFT)
+                //         direction = Direction::RIGHT;
+                //     break;
+                // case 80: // Down arrow
+                //     if (direction != Direction::UP)
+                //         direction = Direction::DOWN;
+                //     break;
+                // case 75: // Left arrow
+                //     if (direction != Direction::RIGHT)
+                //         direction = Direction::LEFT;
+                //     break;
+                // }
+            }
+            else if (ch == 'q') // Thoát trò chơi
+            {
+                showEndMenu();
+                break;
+            }
+        }
+        snakeFunction.move();
+        snakeFunction.drawHeadnTail();
+        if (snakeFunction.isAtePrey())
+        {
+            score++;
+            displayScore();
+            snakeFunction.growing();
+            genApple();
+        }
+        if (snakeFunction.isBiteItself())
+        {
+            // ShowConsoleCursor(true);
+            showEndMenu();
+            break;
+        }
+        if (snakeFunction.isHitWall())
+        {
+            // ShowConsoleCursor(true);
+            showEndMenu();
+            break;
+        }
+        Sleep(speed);
+    }
 }

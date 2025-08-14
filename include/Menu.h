@@ -7,10 +7,11 @@
 #include "Sound.h"
 #include <iostream>
 #include "Common.h"
+#include "SnakeFunction.h"
 
 
 using namespace std;
-
+#include "Common.h"
 extern vector<string> menu;
 
 /// @brief Hàm in menu
@@ -23,5 +24,7 @@ int returnSelectedIndex(Control control, char key, int& selectedIndex);
 void showStartMenu();
 
 void showEndMenu();
+
+void startGame(SnakeFunction &snakeFunction, Control &control);
 
 #endif // MENU_H

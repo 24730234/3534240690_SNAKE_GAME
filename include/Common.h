@@ -29,4 +29,6 @@ extern int score;
 extern int speed;
 extern Point prevTail;
 extern void gotoxy(int x, int y); // Hàm di chuyển con trỏ đến vị trí (x, y)
+extern void displayScore();
+extern void drawBox(); // Hàm vẽ khung trò chơi
 #endif //COMMON_H

@@ -20,7 +20,7 @@ class SnakeFunction {
     bool isBiteItself();
     void growing();
     bool isAtePrey();
-    void drawSnakePart(Point);// Hàm hiển thị thành phần của rắn.
+    void drawSnakePart(Point p);// Hàm hiển thị thành phần của rắn.
     void drawSnake();// Hàm vẽ con rắn.
     void drawHeadnTail();// Hàm vẽ đầu và đuôi rắn.
 };
