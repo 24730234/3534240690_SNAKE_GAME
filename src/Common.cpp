@@ -3,6 +3,9 @@
 //
 #include "Common.h"
 
+#include <Menu.h>
+#include <SnakeFunction.h>
+
 #pragma region Biến toàn cục
 // Khởi tạo vị trí con rắn chính giữa khung hình khi bắt đầu trò chơi.
 std::vector<Point> snake = {
@@ -19,7 +22,7 @@ int speed = 300;// Khởi tạo biến tốc độ di chuyển của rắn
 Point prevTail;// Khởi tạo biến lưu đuôi rắn trước khi di chuyển
 
 // Tạo một quả táo ngẫu nhiên trên bảng
-void genApple()
+void genPrey()
 {
 	srand(time(0));
     int x, y;
@@ -40,6 +43,12 @@ void genApple()
 	std::cout << PREY;
 }
 
+// Hiển thị điểm số
+void displayScore()
+{
+    gotoxy(WIDTH + 5, 2);
+    std::cout << "Diem so cua ban " << score;
+}
 #pragma region Hàm giao diện console
 // Đi tới vị trí (x, y)
 void gotoxy(int x, int y)
@@ -52,4 +61,25 @@ void gotoxy(int x, int y)
         coord
     );
 }
+
+// Vẽ khung trò chơi
+void drawBox()
+{
+    for (size_t i = 0; i < WIDTH; i++)
+        cout << '=';
+    gotoxy(0, HEIGHT);
+    for (size_t i = 0; i < WIDTH; i++)
+        cout << '=';
+    for (size_t i = 1; i < HEIGHT; i++)
+    {
+        gotoxy(0, i);
+        cout << '|';
+    }
+    for (size_t i = 1; i < HEIGHT; i++)
+    {
+        gotoxy(WIDTH, i);
+        cout << '|';
+    }
+}
+
 #pragma endregion

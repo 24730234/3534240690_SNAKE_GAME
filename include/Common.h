@@ -22,11 +22,13 @@ struct Point { int x, y; };
 
 // Tạo một quả táo ngẫu nhiên trên bảng
 void genPrey();
+void gotoxy(int x, int y); // Hàm di chuyển con trỏ đến vị trí (x, y)
+void displayScore();
+void drawBox(); // Hàm vẽ khung trò chơi
 
 extern std::vector<Point> snake;
 extern Point prey;
 extern int score;
 extern int speed;
 extern Point prevTail;
-extern void gotoxy(int x, int y); // Hàm di chuyển con trỏ đến vị trí (x, y)
 #endif //COMMON_H

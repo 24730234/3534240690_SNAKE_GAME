@@ -3,12 +3,14 @@
 //
 #include "SnakeFunction.h"
 
+SnakeFunction::SnakeFunction() {
+}
+
 SnakeFunction::SnakeFunction(Control& control) {
     _control = &control;
 }
 
 void SnakeFunction::move() {
-    std::cout << "SNAKE MOVE";
     Direction direction = _control->getDirection();
     prevTail = snake.back();
     for (size_t i = snake.size() - 1; i > 0; i--)
