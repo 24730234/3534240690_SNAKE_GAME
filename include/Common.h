@@ -25,6 +25,8 @@ void genPrey();
 void gotoxy(int x, int y); // Hàm di chuyển con trỏ đến vị trí (x, y)
 void displayScore();
 void drawBox(); // Hàm vẽ khung trò chơi
+void chooseLevel(); // Ham chon level
+void initGame(); // Ham khoi tao lai score, speed va snake
 
 extern std::vector<Point> snake;
 extern Point prey;

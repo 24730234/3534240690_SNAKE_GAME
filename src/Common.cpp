@@ -82,4 +82,50 @@ void drawBox()
     }
 }
 
+void chooseLevel()
+{
+    system("cls");
+        cout << "Chon cap do choi (1 - 5): ";
+        int t;
+        cin >> t;
+        if (t >= 1 && t <= 5) {
+            speed = 600 - t * 100; // Tính tốc độ dựa trên cấp độ
+        } else 
+        {
+            speed = 300;
+        }
+        
+        system("cls");
+        cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+        gotoxy(0, 2);
+        cout << "San sang!";
+        Sleep(1000);
+        for (size_t i = 3; i > 0; i--)
+        {
+            system("cls");
+            cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+            gotoxy(0, 2);
+            cout << "Dem nguoc: " << i;
+            Sleep(1000);
+        }
+        system("cls");
+        cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+        gotoxy(0, 2);
+        cout << "Choi !";
+        Sleep(1000);
+}
+
+void initGame()
+{
+    score = 0;// Khởi tạo biến điểm số.
+    speed = 300;// Khởi tạo biến tốc độ di chuyển của rắn
+    snake = {
+    Point{ WIDTH / 2 + 2, HEIGHT / 2 },
+    Point{ WIDTH / 2 + 1, HEIGHT / 2 },
+    Point{ WIDTH / 2, HEIGHT / 2 },
+    Point{ WIDTH / 2 - 1, HEIGHT / 2 },
+    Point{ WIDTH / 2 - 2, HEIGHT / 2 }
+    };
+}
+
 #pragma endregion
