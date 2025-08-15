@@ -8,6 +8,8 @@
       "args": [
         "-g",
         "-I", "${workspaceFolder}/include",
+        "${workspaceFolder}/src/SnakeFunction.cpp",
+        "${workspaceFolder}/src/Common.cpp",
         "${workspaceFolder}/src/Control.cpp",
         "${workspaceFolder}/src/Menu.cpp",
         "${workspaceFolder}/src/Sound.cpp",
