@@ -24,6 +24,9 @@ void Control::updateDirection(char key) {
         case 77: // →
             newDir = RIGHT;
             break;
+        case '\x1B':
+            newDir = ESC;
+            break;
     }
 
     // Chỉ đổi hướng nếu không phải hướng ngược lại
