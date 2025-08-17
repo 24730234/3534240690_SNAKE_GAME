@@ -1,4 +1,5 @@
 {
+    "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
         "cpp": "cd $workspaceFolder && g++ -I include src/*.cpp main.cpp -o game && ./game"
     },
