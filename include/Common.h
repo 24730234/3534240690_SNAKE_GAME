@@ -27,6 +27,9 @@ void displayScore();
 void drawBox(); // Hàm vẽ khung trò chơi
 void chooseLevel(); // Ham chon level
 void initGame(); // Ham khoi tao lai score, speed va snake
+// Ham show/off con tro
+void ShowConsoleCursor(bool showFlag);
+
 
 extern std::vector<Point> snake;
 extern Point prey;

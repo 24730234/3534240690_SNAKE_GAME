@@ -61,7 +61,8 @@ int returnSelectedIndex(Control control, char key, int& selectedIndex)
 }
 
 void showStartMenu()
-{
+{   
+    ShowConsoleCursor(false);
     Control control;
     int selectedIndex = 0, choose = -1;
     SnakeFunction snakeFunction(control);
@@ -88,7 +89,6 @@ void showStartMenu()
 
 void showEndMenu()
 {   
-    
 	system("cls");
 	gotoxy(0, 0);
 	cout << "Kết thúc trò chơi!" << endl;
@@ -109,9 +109,9 @@ void showEndMenu()
 }
 
 void startGame(SnakeFunction &snakeFunction, Control &control)
-{
+{   
     system("cls");
-    // ShowConsoleCursor(false);
+    ShowConsoleCursor(false);
     drawBox();
     snakeFunction.drawSnake();
     genPrey();
@@ -141,14 +141,14 @@ void startGame(SnakeFunction &snakeFunction, Control &control)
         if (snakeFunction.isBiteItself())
         {   
             gameOverSound();
-            // ShowConsoleCursor(true);
+            ShowConsoleCursor(true);
             showEndMenu();
             break;
         }
         if (snakeFunction.isHitWall())
         {   
             gameOverSound();
-            // ShowConsoleCursor(true);
+            ShowConsoleCursor(true);
             showEndMenu();
             break;
         }

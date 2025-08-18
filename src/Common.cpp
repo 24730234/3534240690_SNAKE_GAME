@@ -65,21 +65,33 @@ void gotoxy(int x, int y)
 // Vẽ khung trò chơi
 void drawBox()
 {
-    for (size_t i = 0; i < WIDTH; i++)
-        cout << '=';
-    gotoxy(0, HEIGHT);
-    for (size_t i = 0; i < WIDTH; i++)
-        cout << '=';
-    for (size_t i = 1; i < HEIGHT; i++)
-    {
-        gotoxy(0, i);
-        cout << '|';
-    }
-    for (size_t i = 1; i < HEIGHT; i++)
-    {
-        gotoxy(WIDTH, i);
-        cout << '|';
-    }
+	cout << "╔";// Vẽ góc trên bên trái của khung.
+	for (size_t i = 1; i < WIDTH; i++)
+		cout << "═";
+	cout << "╗" << endl;// Vẽ góc trên bên phải của khung.
+
+	for (size_t i = 1; i < HEIGHT; i++)
+	{
+		gotoxy(0, i);
+		cout << "║";
+		gotoxy(WIDTH, i);
+		cout << "║";
+	}
+	gotoxy(0, HEIGHT);
+	cout << "╚";
+	for (size_t i = 1; i < WIDTH; i++)
+		cout << "═";
+	cout << "╝";// Vẽ góc dưới bên phải của khung.
+}
+
+// Hiển thị hoặc ẩn con trỏ trong console
+void ShowConsoleCursor(bool showFlag)
+{
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursorInfo;
+	GetConsoleCursorInfo(out, &cursorInfo);
+	cursorInfo.bVisible = showFlag;
+	SetConsoleCursorInfo(out, &cursorInfo);
 }
 
 void chooseLevel()
