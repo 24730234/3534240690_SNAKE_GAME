@@ -20,8 +20,8 @@ Game chạy theo **game loop** liên tục: nhận input → cập nhật trạn
 ```cpp
 #define WIDTH  40
 #define HEIGHT 20
-#define BODY   '*'
-#define PREY   'O'
+#define BODY "■"  Thành phần thân rắn
+#define PREY "♥"  Mồi của rắn
 ```
 
 - `WIDTH`, `HEIGHT`: kích thước khu vực chơi.  
