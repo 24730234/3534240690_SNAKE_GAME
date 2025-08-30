@@ -15,11 +15,11 @@ class SnakeFunction {
   public:
     SnakeFunction();
     SnakeFunction(Control &control);
-    void move();
-    bool isHitWall();
-    bool isBiteItself();
-    void growing();
-    bool isAtePrey();
+    void move();// Hàm chi chuyển rắn.
+    bool isHitWall();// Hàm kiểm tra rắn đụng tường.
+    bool isBiteItself();// Hàm kiểm tra rắn tự cắn.
+    void growing();// Hàm rắn lớn lên.
+    bool isAtePrey();// Hàm kiểm tra ăn mồi.
     void drawSnakePart(Point p);// Hàm hiển thị thành phần của rắn.
     void drawSnake();// Hàm vẽ con rắn.
     void drawHeadnTail();// Hàm vẽ đầu và đuôi rắn.

@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-vector<string> menu = {"Play", "Settings", "Exit"};
+vector<string> menu = {"Chơi", "Tùy chỉnh", "Thoát"};
 
 void printMenu(vector<string>& menu, int& selectedIndex)
 {   
@@ -14,7 +14,7 @@ void printMenu(vector<string>& menu, int& selectedIndex)
 |_____/|_| \_/_/    \_\_|\_\______|  \_____/_/    \_\_|  |_|______|)" 
     << "\033[0m\n";
     
-    cout << endl << endl << "------------Menu------------" << endl;
+    cout << endl << endl << "------------Danh mục------------" << endl;
     for(int i = 0; i < menu.size(); i++)
     {   
         if (selectedIndex == i)
@@ -49,8 +49,7 @@ int returnSelectedIndex(Control control, char key, int& selectedIndex)
                 selectedIndex--;
                 if (selectedIndex < 0) selectedIndex = menu.size() - 1;
             } 
-            else if 
-            (control.getDirection() == DOWN || control.getDirection() == RIGHT)
+            else if (control.getDirection() == DOWN || control.getDirection() == RIGHT)
             {
                 selectedIndex++;
                 if (selectedIndex >= menu.size()) selectedIndex = 0;
@@ -72,7 +71,7 @@ void showStartMenu()
         printMenu(menu, selectedIndex);
         choose = returnSelectedIndex(control, key, selectedIndex); 
         if (choose == 0) {
-            cout << "Game Start" << endl;
+            cout << "Trò chơi bắt đầu" << endl;
             chooseLevel();
             startGame(snakeFunction, control);
             // startGame se o day

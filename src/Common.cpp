@@ -46,7 +46,7 @@ void genPrey()
 void displayScore()
 {
     gotoxy(WIDTH + 5, 2);
-    std::cout << "Diem so cua ban " << score;
+    std::cout << "Điểm số của bạn " << score;
 }
 #pragma region Hàm giao diện console
 // Đi tới vị trí (x, y)
@@ -96,7 +96,7 @@ void ShowConsoleCursor(bool showFlag)
 void chooseLevel()
 {
     system("cls");
-        cout << "Chon cap do choi (1 - 5): ";
+        cout << "Chọn cấp độ chơi (1 - 5): ";
         int t;
         cin >> t;
         if (t >= 1 && t <= 5) {
@@ -107,22 +107,22 @@ void chooseLevel()
         }
         
         system("cls");
-        cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+        cout << "Mẹo: khi chơi game, bạn có thể nhấn 'ESC' để thoát" << endl;
         gotoxy(0, 2);
-        cout << "San sang!";
+        cout << "Sẵn sàng!";
         Sleep(1000);
         for (size_t i = 3; i > 0; i--)
         {
             system("cls");
-            cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+            cout << "Mẹo: khi chơi game, bạn có thể nhấn 'ESC' để thoát" << endl;
             gotoxy(0, 2);
-            cout << "Dem nguoc: " << i;
+            cout << "Đếm ngược: " << i;
             Sleep(1000);
         }
         system("cls");
-        cout << "Meo: khi choi game, ban co the nhan 'ESC' de thoat" << endl;
+        cout << "Mẹo: khi chơi game, bạn có thể nhấn 'ESC' để thoát" << endl;
         gotoxy(0, 2);
-        cout << "Choi !";
+        cout << "Chơi!";
         Sleep(1000);
 }
 
@@ -130,6 +130,7 @@ void initGame()
 {
     score = 0;// Khởi tạo biến điểm số.
     speed = 300;// Khởi tạo biến tốc độ di chuyển của rắn
+    // Khởi tạo vị trí rắn khi bắt đầu chơi.
     snake = {
     Point{ WIDTH / 2 + 2, HEIGHT / 2 },
     Point{ WIDTH / 2 + 1, HEIGHT / 2 },

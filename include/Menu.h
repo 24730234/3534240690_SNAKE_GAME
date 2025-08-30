@@ -8,10 +8,8 @@
 #include <iostream>
 #include "Common.h"
 #include "SnakeFunction.h"
-
-
 using namespace std;
-#include "Common.h"
+
 extern vector<string> menu;
 
 /// @brief Hàm in menu
@@ -19,10 +17,13 @@ extern vector<string> menu;
 /// @param selectedIndex vị trí đang được lựa chọn
 void printMenu(vector<string>& menu, int& selectedIndex);
 
+// Xử lý di chuyển trong danh mục dựa vào phím bấm.
 int returnSelectedIndex(Control control, char key, int& selectedIndex);
 
+// Hiển thị danh mục bắt đầu game.
 void showStartMenu();
 
+// Hiển thị danh mục kết thúc game.
 void showEndMenu();
 
 void startGame(SnakeFunction &snakeFunction, Control &control);
