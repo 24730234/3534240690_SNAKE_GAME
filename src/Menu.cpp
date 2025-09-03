@@ -119,12 +119,15 @@ void startGame(SnakeFunction &snakeFunction, Control &control)
     {
         if (_kbhit())
         {
-            char ch = _getch();
-            control.updateDirection(ch);
-            if (control.getDirection() == ESC)
+            char ch =_getch();
+            if (ch > 0)
             {
-                showEndMenu();
-                break;
+                control.updateDirection(ch);
+                if (control.getDirection() == ESC)
+                {
+                    showEndMenu();
+                    break;
+                }
             }
         }
         snakeFunction.move();
