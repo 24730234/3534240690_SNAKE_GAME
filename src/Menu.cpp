@@ -76,7 +76,7 @@ void showStartMenu()
             startGame(snakeFunction, control);
             // startGame se o day
         }
-        else if (choose == 2)
+        else if (choose == 1)
         {            
             // thoat game se o day
             exit(1);
