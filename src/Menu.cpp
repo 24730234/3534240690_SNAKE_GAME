@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-vector<string> menu = {"Chơi", "Thoát"};
+vector<string> menu = {"Chơi", "Tuỳ chỉnh", "Thoát"};
 
 void printMenu(vector<string>& menu, int& selectedIndex)
 {   
@@ -76,7 +76,7 @@ void showStartMenu()
             startGame(snakeFunction, control);
             // startGame se o day
         }
-        else if (choose == 1)
+        else if (choose == 2)
         {            
             // thoat game se o day
             exit(1);
