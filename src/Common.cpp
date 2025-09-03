@@ -4,10 +4,11 @@
 #include "../include/Common.h"
 #include "../include/Menu.h"
 #include "../include/SnakeFunction.h"
+using namespace std;
 
 #pragma region Biến toàn cục
 // Khởi tạo vị trí con rắn chính giữa khung hình khi bắt đầu trò chơi.
-std::vector<Point> snake = {
+vector<Point> snake = {
     Point{ WIDTH / 2 + 2, HEIGHT / 2 },
     Point{ WIDTH / 2 + 1, HEIGHT / 2 },
     Point{ WIDTH / 2, HEIGHT / 2 },
@@ -35,18 +36,18 @@ void genPrey()
             y,
         };
         // Xác định mồi có trùng với thân rắn hay không
-        conflict = std::any_of(snake.begin(), snake.end(),
+        conflict = any_of(snake.begin(), snake.end(),
             [&](const Point& p) { return p.x == prey.x && p.y == prey.y;});
     } while (conflict);
 	gotoxy(x, y);
-	std::cout << PREY;
+	cout << PREY;
 }
 
 // Hiển thị điểm số
 void displayScore()
 {
     gotoxy(WIDTH + 5, 2);
-    std::cout << "Điểm số của bạn " << score;
+    cout << "Điểm số của bạn " << score;
 }
 #pragma region Hàm giao diện console
 // Đi tới vị trí (x, y)
