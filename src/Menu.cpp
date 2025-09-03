@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-vector<string> menu = {"Chơi", "Tùy chỉnh", "Thoát"};
+vector<string> menu = {"Chơi", "Thoát"};
 
 void printMenu(vector<string>& menu, int& selectedIndex)
 {   
